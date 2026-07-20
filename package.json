@@ -1,0 +1,62 @@
+{
+  "name": "aura-svg-studio",
+  "version": "1.0.0",
+  "description": "Offline Windows Desktop App for Aura SVG Studio",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"nodemon backend/server/index.js\"",
+    "build": "npm run build --prefix frontend && electron-builder --win",
+    "dist": "npm run build --prefix frontend && electron-builder --win"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "ffmpeg-static": "^5.3.0",
+    "playwright": "^1.44.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "electron": "^31.2.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.aurastudio.svg",
+    "productName": "Aura SVG Studio",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "backend/**/*",
+      "frontend/dist/**/*",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "asarUnpack": [
+      "**/node_modules/ffmpeg-static/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "playwright-browsers",
+        "to": "playwright-browsers",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "frontend/public/favicon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Aura SVG Studio"
+    }
+  }
+}

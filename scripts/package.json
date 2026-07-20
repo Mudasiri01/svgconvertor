@@ -1,0 +1,10 @@
+{
+  "name": "admin-scripts",
+  "version": "1.0.0",
+  "description": "Admin scripts for managing users",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.3",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5"
+  }
+}
