@@ -1,7 +1,7 @@
 const { supabase } = require('./utils/supabase');
 const { verifyToken } = require('./utils/auth');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // Add CORS headers for Electron
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');

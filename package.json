@@ -7,12 +7,16 @@
     "start": "electron .",
     "dev": "concurrently \"npm run dev --prefix frontend\" \"nodemon backend/server/index.js\"",
     "build": "npm run build --prefix frontend && electron-builder --win",
-    "dist": "npm run build --prefix frontend && electron-builder --win"
+    "dist": "npm run build --prefix frontend && electron-builder --win",
+    "vercel-build": "echo 'Skipping Vercel build'"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.3",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^5.2.1",
     "ffmpeg-static": "^5.3.0",
+    "jsonwebtoken": "^9.0.2",
     "playwright": "^1.44.0",
     "uuid": "^9.0.0"
   },
